@@ -1,0 +1,22 @@
+﻿@model WebUI.Models.BookResultViewModel
+ 
+@{
+    ViewData["Title"] = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Calculation Result</h3>
+
+<table class="table table-bordered table-hover">
+    <tbody>
+        <tr>
+            <td>Calculated Business Days</td>
+            <td>@Model.ReservationResult.BusinessDays</td>
+        </tr>
+        <tr>
+            <td>Calculated penalty</td>
+            <td>+@Model.ReservationResult.TotalPenaltyDays days -> <b>@Model.ReservationResult.PenaltyAmount.ToString("0.##") @Model.ReservationResult.MoneyIcon</b></td>
+        </tr>
+    </tbody>
+</table>
+

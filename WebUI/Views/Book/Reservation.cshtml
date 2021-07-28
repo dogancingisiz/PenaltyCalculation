@@ -1,0 +1,34 @@
+﻿@model WebUI.Models.BookCheckOutViewModel
+
+@{
+    ViewData["Title"] = "CheckedOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Book Reservation</h3>
+
+<form asp-controller="Book" asp-action="Reservation" method="post">
+    <div class="form-group">
+        <label>Check Out Date</label>
+        <input type="date" class="form-control" asp-for="CheckOutDate" required />
+    </div>
+    <div class="form-group">
+        <label>Returned date</label>
+        <input type="date" class="form-control" asp-for="ReturnedDate" required />
+    </div>
+    <div class="form-group">
+        <label>Select Country</label>
+        <select class="form-control" asp-for="CountryId">
+            @foreach (var country in Model.Countries)
+            {
+                <option value="@country.Id">@country.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-dark">Calculate</button>
+    </div>
+</form>
+
+@Html.ValidationSummary()
+
